@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Method Test">
+	<test name="Feature Test">
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.ManageUsersTest">
+				<methods>
+					<include name="verifyUserStatusChangingFunctionality"></include>
+					<include name="verifyDeleteUser"></include>
+					<include name="verifyPassword"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>

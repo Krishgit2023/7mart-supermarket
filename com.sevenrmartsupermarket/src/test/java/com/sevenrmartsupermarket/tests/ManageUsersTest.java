@@ -14,9 +14,9 @@ public class ManageUsersTest extends Base {
 
 	LoginPage loginpage;
 	ManageUsersPage manageUsersPage;
-	ScreenShot screenShot;
+	//ScreenShot screenShot;
 
-	@Test
+	@Test(groups = "Smoke")
 	public void verifyUserStatusChangingFunctionality() {
 		loginpage = new LoginPage(driver);
 		manageUsersPage = new ManageUsersPage(driver);
@@ -25,7 +25,7 @@ public class ManageUsersTest extends Base {
 		manageUsersPage.clickOnDeactivationButton("Abhiramkrishnakumarsreenatest d");
 	}
 
-	@Test
+	@Test(groups = {"Smoke","Sanity"})
 	public void verifyDeleteUser() {
 		loginpage = new LoginPage(driver);
 		manageUsersPage = new ManageUsersPage(driver);
@@ -34,11 +34,11 @@ public class ManageUsersTest extends Base {
 		manageUsersPage.clickOnDeleteUserButton("abc1 Bala");
 	}
 
-	@Test
+	@Test(groups = "Sanity")
 	public void verifySearchUser() {
 		loginpage = new LoginPage(driver);
 		manageUsersPage = new ManageUsersPage(driver);
-		screenShot = new ScreenShot();
+		//screenShot = new ScreenShot();
 		loginpage.loginUtility();
 		manageUsersPage.clickOnManageUsers();
 		manageUsersPage.searchUser("Shabana Sulthana S L", "9567396119", "shabanassl@gmail.com", "Active");
@@ -46,13 +46,13 @@ public class ManageUsersTest extends Base {
 		
 	}
 
-	@Test
+	@Test(groups = "Smoke")
 	public void verifyPassword() {
 		loginpage = new LoginPage(driver);
 		manageUsersPage = new ManageUsersPage(driver);
 		loginpage.loginUtility();
 		manageUsersPage.clickOnManageUsers();
-		manageUsersPage.clickOnPasswordButton("chaitra l a");
+		manageUsersPage.clickOnPasswordButton("Tester");
 		System.out.println(manageUsersPage.getPassword());
 
 	}

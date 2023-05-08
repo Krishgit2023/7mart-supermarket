@@ -13,7 +13,7 @@ public class AdminUsersTest extends Base {
 	LoginPage loginpage;
 	AdminUsersPage adminUsersPage;
 
-	@Test
+	@Test(groups = "Smoke")
 	public void verifyAdminUsers() {
 		loginpage = new LoginPage(driver);
 		adminUsersPage = new AdminUsersPage(driver);
@@ -39,7 +39,7 @@ public class AdminUsersTest extends Base {
 		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);
 	}
 
-	@Test
+	@Test(groups = "Sanity")
 	public void verifyUserStatusChangingFunctionality() {
 		loginpage = new LoginPage(driver);
 		adminUsersPage = new AdminUsersPage(driver);

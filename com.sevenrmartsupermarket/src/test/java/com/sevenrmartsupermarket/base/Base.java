@@ -58,14 +58,14 @@ public class Base {
 		driver.manage().deleteAllCookies();
 	}
 
-	@BeforeMethod
+	@BeforeMethod(alwaysRun = true)
 	public void launchBrowser() {
 		String browser = properties.getProperty("browser");
 		String url = properties.getProperty("url");
 		initialize(browser, url);
 	}
 	
-	@AfterMethod
+	@AfterMethod(alwaysRun = true)
 	public void terminateBrowser(ITestResult itestresult) {
 		if (itestresult.getStatus()==ITestResult.FAILURE) {
 			screenShot.takeScreenShot(driver, itestresult.getName());

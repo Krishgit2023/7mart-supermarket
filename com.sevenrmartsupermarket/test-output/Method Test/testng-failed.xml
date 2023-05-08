@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [Method Test]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Feature Test(failed)">
     <classes>
       <class name="com.sevenrmartsupermarket.tests.ManageUsersTest">
         <methods>
           <include name="launchBrowser"/>
           <include name="verifyDeleteUser"/>
+          <include name="verifyPassword"/>
           <include name="terminateBrowser"/>
         </methods>
       </class> <!-- com.sevenrmartsupermarket.tests.ManageUsersTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Feature Test(failed) -->
+</suite> <!-- Failed suite [Method Test] -->
