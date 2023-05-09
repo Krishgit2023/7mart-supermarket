@@ -14,6 +14,7 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 
 import com.sevenrmartsupermarket.constants.Constants;
 import com.sevenrmartsupermarket.utilities.ScreenShot;
@@ -57,8 +58,16 @@ public class Base {
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 	}
-
-	@BeforeMethod(alwaysRun = true)
+	
+	@Parameters("browser")
+	@BeforeMethod(alwaysRun = true, enabled = false)
+	public void launchBrowser(String browser) {
+		
+		String url = properties.getProperty("url");
+		initialize(browser, url);
+	}
+	
+	@BeforeMethod(alwaysRun = true, enabled = true)
 	public void launchBrowser() {
 		String browser = properties.getProperty("browser");
 		String url = properties.getProperty("url");
@@ -70,7 +79,7 @@ public class Base {
 		if (itestresult.getStatus()==ITestResult.FAILURE) {
 			screenShot.takeScreenShot(driver, itestresult.getName());
 		}
-		driver.close();
+		//driver.close();
 	}
 
 }

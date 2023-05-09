@@ -45,7 +45,6 @@ public class AdminUsersTest extends Base {
 		adminUsersPage = new AdminUsersPage(driver);
 		loginpage.loginUtility();
 		adminUsersPage.clickOnAdminUsers();
-		;
 		adminUsersPage.clickOnDeactivationButton("krish_mg");
 		System.out.println(adminUsersPage.getUserActionAlertMessage());
 	}

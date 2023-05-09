@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<suite parallel="tests" name="Failed suite [cross browser test]">
+  <listeners>
+    <listener class-name="com.sevenrmartsupermarket.listeners.ExtentReporter"/>
+  </listeners>
+  <test thread-count="5" parallel="tests" name="Executing in Edge(failed)">
+    <parameter name="browser" value="edge"/>
     <classes>
       <class name="com.sevenrmartsupermarket.tests.ManageDeliveryBoyTest">
         <methods>
+          <include name="verifyPassword"/>
           <include name="launchBrowser"/>
           <include name="verifyDeliveryBoyNewUserCreation"/>
           <include name="terminateBrowser"/>
         </methods>
       </class> <!-- com.sevenrmartsupermarket.tests.ManageDeliveryBoyTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Executing in Edge(failed) -->
+</suite> <!-- Failed suite [cross browser test] -->
