@@ -12,18 +12,16 @@ import com.sevenrmartsupermarket.pages.ManageDeliveryBoyPage;
 import com.sevenrmartsupermarket.pages.ManageUsersPage;
 import com.sevenrmartsupermarket.utilities.GeneralUtility;
 
-
-
 public class ManageDeliveryBoyTest extends Base {
 
 	ManageDeliveryBoyPage managedeliveryboypage;
 	LoginPage loginPage;
-	
-	@Test(dataProvider = "New User Creation", dataProviderClass = DataProviders.class)
-	public void verifyDeliveryBoyNewUserCreation(String name, String email, String phoneNumber, String address, String userName,
-			String password) {
-		name = name+GeneralUtility.getTimeStamp();
-		userName = userName+GeneralUtility.getTimeStamp();
+
+	@Test(dataProvider = "New DeliveryBoy User Creation Data", dataProviderClass = DataProviders.class)
+	public void verifyDeliveryBoyNewUserCreations(String name, String email, String phoneNumber, String address,
+			String userName, String password) {
+		name = name + GeneralUtility.getTimeStamp();
+		userName = userName + GeneralUtility.getTimeStamp();
 		loginPage = new LoginPage(driver);
 		managedeliveryboypage = new ManageDeliveryBoyPage(driver);
 		loginPage.loginUtility();
@@ -35,16 +33,16 @@ public class ManageDeliveryBoyTest extends Base {
 		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);
 
 	}
-	
-	@Test(enabled = true) // pending task - need to check for assertion
-	public void verifyPassword() {
+
+	@Test
+	public void verifySearchDeliveryListBoy() {
 		loginPage = new LoginPage(driver);
 		managedeliveryboypage = new ManageDeliveryBoyPage(driver);
 		loginPage.loginUtility();
 		managedeliveryboypage.clickOnManageDeliverBoy();
-		managedeliveryboypage.clickOnPasswordButton("Tester");
-		System.out.println(managedeliveryboypage.getPassword());
-		
+		managedeliveryboypage.searchListDeliveryBoy("Edmond", "test123@gmail.com", "1-449-599-4256");
+		boolean actualResult = (managedeliveryboypage.is_SearchResultDisplayed());
+		Assert.assertTrue(actualResult);
 
 	}
 

@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
@@ -166,5 +167,20 @@ public class PageUtility {
 	public void action_giveTextInAlert(String text) {
 		driver.switchTo().alert().sendKeys(text);
 	}
+	
+	/**
+	 * method to upload File
+	 */
+	
+	public void uploadFile(WebElement element, String fileName) {
+		try {
+			File file = new File(Constants.IMAGE_DIRECTORY+fileName);
+			element.sendKeys(file.getAbsolutePath());
+		} catch (Exception e) {
+			e.printStackTrace();
+		
+		}
+	}
+	
 
 }

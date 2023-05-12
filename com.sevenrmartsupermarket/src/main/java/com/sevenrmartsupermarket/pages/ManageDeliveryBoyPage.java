@@ -9,6 +9,7 @@ import javax.xml.xpath.XPath;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -32,6 +33,7 @@ public class ManageDeliveryBoyPage {
 	private WebElement phoneNumberElement;
 	@FindBy(xpath = "//textarea[@id='address']")
 	private WebElement addressElement;
+	@CacheLookup
 	@FindBy(xpath = "//input[@id='username']")
 	private WebElement userNameElement;
 	@FindBy(xpath = "//input[@id='password']")
@@ -42,8 +44,18 @@ public class ManageDeliveryBoyPage {
 	private WebElement userCreationAlertMessageElement;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody/tr/td[1]")
 	private List<WebElement> tableNameElement;
-	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody/tr//div[@class='profile-info-name']")
-	private List<WebElement> passwordResultElement;
+	@FindBy(xpath = "//a[@class='btn btn-rounded btn-primary']")
+	private WebElement searchButtonElement;
+	@FindBy(xpath = "//input[@id='un']")
+	private WebElement searchNameElement;
+	@FindBy(xpath = "//input[@id='ut']")
+	private WebElement searchEmailElement;
+	@FindBy(xpath = "//input[@id='ph']")
+	private WebElement searchPhoneNumberElement;
+	@FindBy(xpath = "//button[@name='Search']")
+	private WebElement searchElement;
+	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody/tr[1]")
+	private WebElement searchResultElement;
 
 	public ManageDeliveryBoyPage(WebDriver driver) {
 		this.driver = driver;
@@ -104,31 +116,44 @@ public class ManageDeliveryBoyPage {
 		generalUtility = new GeneralUtility(driver);
 		return generalUtility.get_textOFElement(userCreationAlertMessageElement);
 	}
-	
-	public void clickOnPasswordButton(String name) {
-		generalUtility = new GeneralUtility(driver);
-		pageUtility = new PageUtility(driver);
-		List<String> userNames = new ArrayList<String>();
-		userNames = generalUtility.GetTextOfElements(tableNameElement);
-		int i = 0;
-		for (i = 0; i < userNames.size(); i++) {
-			if (name.equals(userNames.get(i))) {
-				i++;
-				break;
-			}
-		}
-		WebElement passwordButton = driver
-				.findElement(By.xpath("//table[@class='table table-bordered table-hover table-sm']/tbody/tr["+i+"]/td[7]"));
 
-		pageUtility.scroll_and_click(passwordButton);
+	public void clickOnSearchButton() {
+		searchButtonElement.click();
+	}
+
+	public void searchName(String name) {
+		searchNameElement.sendKeys(name);
+	}
+
+	public void searchEmail(String email) {
+		searchEmailElement.sendKeys(email);
+	}
+
+	public void searchPhoneNumber(String phoneNumber) {
+		searchPhoneNumberElement.sendKeys(phoneNumber);
+	}
+
+	public void search() {
+		searchElement.click();
+	}
+
+	public void searchResult() {
+		searchResultElement.click();
+	}
+
+	public void searchListDeliveryBoy(String name, String email, String phoneNumber) {
+		clickOnSearchButton();
+		searchName(name);
+		searchEmail(email);
+		searchPhoneNumber(phoneNumber);
+		search();
 
 	}
-	
-	public List<String> getPassword() {
+
+	public boolean is_SearchResultDisplayed() {
 		generalUtility = new GeneralUtility(driver);
-		return generalUtility.GetTextOfElements(passwordResultElement);
+		return generalUtility.is_Displayed(searchResultElement);
+
 	}
-	
-	
 
 }

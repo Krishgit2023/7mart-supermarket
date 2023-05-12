@@ -18,7 +18,6 @@ public class PushNotificationTest extends Base{
 		excelreader.setExcelFile("Pushnotificationdata", "notificationdata");
 		String title=excelreader.getCellData(1,0 );
 		System.out.println(title);
-		//excelreader.setExcelFile(title, title);we can give next one here
 		
 	
  

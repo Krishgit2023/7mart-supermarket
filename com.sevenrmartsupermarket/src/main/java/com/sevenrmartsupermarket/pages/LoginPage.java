@@ -27,7 +27,7 @@ public class LoginPage {
 	private WebElement profileNameElement;
 	@FindBy(xpath = "//label[@for='remember']")
 	private WebElement rememberCheckBox;
-	@FindBy(xpath = "//h5[text()=' Alert!']")
+	@FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
 	private WebElement invalidLoginErrorMessage;
 	@FindBy(xpath = "//span[@class='brand-text font-weight-light']")
 	private WebElement sevenMartLogo;

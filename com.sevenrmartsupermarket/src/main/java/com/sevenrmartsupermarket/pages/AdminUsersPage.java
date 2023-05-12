@@ -31,16 +31,28 @@ public class AdminUsersPage {
 	private WebElement userTypeElement;
 	@FindBy(xpath = "//div[@class='card-footer center']//button[@type='submit']")
 	private WebElement saveButtonElement;
-	@FindBy(xpath = "//h5[text()=' Alert!']")
-	private WebElement alertElement;
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
 	private WebElement successAlertElement;
+	@FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
+	private WebElement existingUserAlertElement;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody/tr[5]/td[5]/a[1]")
 	private List<WebElement> actionLockElement;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody/tr/td[1]")
-	private List<WebElement> nameElement;
-	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
-	private WebElement userActionAlertMessageElement;
+	private List<WebElement> tableNameElement;
+	@FindBy(xpath = "//img[@class='img-circle']")
+	private WebElement adminLogoutElement;
+	@FindBy(xpath = "//div[@class='dropdown-menu dropdown-menu-lg dropdown-menu-right text_black show']//a[@href='https://groceryapp.uniqassosiates.com/admin/logout']")
+	private WebElement logoutButtonElement;
+	@FindBy(xpath = "//input[@id='un']")
+	private WebElement searchUsernameElement;
+	@FindBy(xpath = "//select[@id='ut']")
+	private WebElement searchUserTypeElement;
+	@FindBy(xpath = "//a[@class='btn btn-rounded btn-primary']")
+	private WebElement searchUserButtonElement;
+	@FindBy(xpath = "//div[@class='card-body']//button[@class='btn btn-block-sm btn-danger']")
+	private WebElement searchSubmitButtonElement;
+	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody")
+	private WebElement searchResultElement;
 
 	public AdminUsersPage(WebDriver driver) {
 		this.driver = driver;
@@ -67,33 +79,31 @@ public class AdminUsersPage {
 		saveButtonElement.click();
 	}
 
-	public void createUser(String usersName, String password, String userType) {
+	public void createAdminUser(String usersName, String password, String userType) {
 		pageUtility = new PageUtility(driver);
 		clickOnNewButton();
 		inputUserName(usersName);
 		inputPassword(password);
 		pageUtility.select_ByVisibleText(userType, userTypeElement);
 		clickOnSaveButton();
-		getAlertMessage();
 
 	}
 
-	public String getAlertMessage() {
-		generalUtility = new GeneralUtility(driver);
-		return generalUtility.get_textOFElement(alertElement);
-
-	}
-
-	public String getSuccessMessage() {
+	public String getUserCreationSuccessAlert() {
 		generalUtility = new GeneralUtility(driver);
 		return generalUtility.get_textOFElement(successAlertElement);
+	}
+
+	public String getExistingUserAlert() {
+		generalUtility = new GeneralUtility(driver);
+		return generalUtility.get_textOFElement(existingUserAlertElement);
 	}
 
 	public void clickOnDeactivationButton(String name) {
 		generalUtility = new GeneralUtility(driver);
 		pageUtility = new PageUtility(driver);
 		List<String> userNames = new ArrayList<String>();
-		userNames = generalUtility.GetTextOfElements(nameElement);
+		userNames = generalUtility.GetTextOfElements(tableNameElement);
 		int i;
 		for (i = 0; i < userNames.size(); i++) {
 			if (name.equals(userNames.get(i))) {
@@ -106,16 +116,11 @@ public class AdminUsersPage {
 		pageUtility.scroll_and_click(deactivateButton);
 	}
 
-	public String getUserActionAlertMessage() {
-		generalUtility = new GeneralUtility(driver);
-		return generalUtility.get_textOFElement(userActionAlertMessageElement);
-	}
-
 	public void clickOnDeleteUserButton(String name) {
 		generalUtility = new GeneralUtility(driver);
 		pageUtility = new PageUtility(driver);
 		List<String> userNames = new ArrayList<String>();
-		userNames = generalUtility.GetTextOfElements(nameElement);
+		userNames = generalUtility.GetTextOfElements(tableNameElement);
 		int i;
 		for (i = 0; i < userNames.size(); i++) {
 			if (name.equals(userNames.get(i))) {
@@ -128,6 +133,24 @@ public class AdminUsersPage {
 		pageUtility.scroll_and_click(deleteButton);
 		pageUtility.action_acceptAlert(deleteButton);
 
+	}
+
+	public void searchAdminUser(String userName, String userType) {
+		pageUtility = new PageUtility(driver);
+		searchUserButtonElement.click();
+		searchUsernameElement.sendKeys(userName);
+		pageUtility.select_ByVisibleText(userType, searchUserTypeElement);
+		searchSubmitButtonElement.click();
+	}
+
+	public String getAdminUserSearchResult() {
+		generalUtility = new GeneralUtility(driver);
+		return generalUtility.get_textOFElement(searchResultElement);
+	}
+
+	public void clickOnLogout() {
+		adminLogoutElement.click();
+		logoutButtonElement.click();
 	}
 
 }

@@ -1,134 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="1" total="4" passed="3" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-05-09T02:27:04Z" name="Default suite" finished-at="2023-05-09T02:27:29Z" duration-ms="24999">
+  <suite started-at="2023-05-12T08:21:09Z" name="Default suite" finished-at="2023-05-12T08:21:13Z" duration-ms="4260">
     <groups>
     </groups>
-    <test started-at="2023-05-09T02:27:04Z" name="Default test" finished-at="2023-05-09T02:27:29Z" duration-ms="24999">
-      <class name="com.sevenrmartsupermarket.tests.ManageDeliveryBoyTest">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:com.sevenrmartsupermarket.tests.ManageDeliveryBoyTest@5505ae1a]" started-at="2023-05-09T02:27:04Z" name="launchBrowser" finished-at="2023-05-09T02:27:09Z" duration-ms="4744" status="PASS">
+    <test started-at="2023-05-12T08:21:09Z" name="Default test" finished-at="2023-05-12T08:21:13Z" duration-ms="4260">
+      <class name="com.sevenrmartsupermarket.tests.ManageContentTest">
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:com.sevenrmartsupermarket.tests.ManageContentTest@ca30bc1]" started-at="2023-05-12T08:21:09Z" name="launchBrowser" finished-at="2023-05-12T08:21:12Z" duration-ms="3284" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchBrowser -->
-        <test-method signature="verifyDeliveryBoyNewUserCreation()[pri:0, instance:com.sevenrmartsupermarket.tests.ManageDeliveryBoyTest@5505ae1a]" started-at="2023-05-09T02:27:09Z" name="verifyDeliveryBoyNewUserCreation" finished-at="2023-05-09T02:27:13Z" duration-ms="4553" status="PASS">
+        <test-method signature="verifyNewPageCreation()[pri:0, instance:com.sevenrmartsupermarket.tests.ManageContentTest@ca30bc1]" started-at="2023-05-12T08:21:12Z" name="verifyNewPageCreation" finished-at="2023-05-12T08:21:13Z" duration-ms="945" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyDeliveryBoyNewUserCreation -->
-        <test-method is-config="true" signature="terminateBrowser(org.testng.ITestResult)[pri:0, instance:com.sevenrmartsupermarket.tests.ManageDeliveryBoyTest@5505ae1a]" started-at="2023-05-09T02:27:13Z" name="terminateBrowser" finished-at="2023-05-09T02:27:13Z" duration-ms="5" status="PASS">
+        </test-method> <!-- verifyNewPageCreation -->
+        <test-method is-config="true" signature="terminateBrowser(org.testng.ITestResult)[pri:0, instance:com.sevenrmartsupermarket.tests.ManageContentTest@ca30bc1]" started-at="2023-05-12T08:21:13Z" name="terminateBrowser" finished-at="2023-05-12T08:21:13Z" duration-ms="3" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyDeliveryBoyNewUserCreation status=SUCCESS method=ManageDeliveryBoyTest.verifyDeliveryBoyNewUserCreation()[pri:0, instance:com.sevenrmartsupermarket.tests.ManageDeliveryBoyTest@5505ae1a] output={null}]]]>
+                <![CDATA[[TestResult name=verifyNewPageCreation status=SUCCESS method=ManageContentTest.verifyNewPageCreation()[pri:0, instance:com.sevenrmartsupermarket.tests.ManageContentTest@ca30bc1] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- terminateBrowser -->
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:com.sevenrmartsupermarket.tests.ManageDeliveryBoyTest@5505ae1a]" started-at="2023-05-09T02:27:13Z" name="launchBrowser" finished-at="2023-05-09T02:27:16Z" duration-ms="2240" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchBrowser -->
-        <test-method signature="verifyDeliveryBoyNewUserCreation(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.sevenrmartsupermarket.tests.ManageDeliveryBoyTest@5505ae1a]" started-at="2023-05-09T02:27:16Z" name="verifyDeliveryBoyNewUserCreation" data-provider="New User Creation" finished-at="2023-05-09T02:27:21Z" duration-ms="5132" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Deliveryboyuser]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[deliveryboy@gmail.com]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[1234567890]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[XYZ address]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[DeliveryUser]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[Delivey@123]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyDeliveryBoyNewUserCreation -->
-        <test-method is-config="true" signature="terminateBrowser(org.testng.ITestResult)[pri:0, instance:com.sevenrmartsupermarket.tests.ManageDeliveryBoyTest@5505ae1a]" started-at="2023-05-09T02:27:21Z" name="terminateBrowser" finished-at="2023-05-09T02:27:21Z" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=verifyDeliveryBoyNewUserCreation status=SUCCESS method=ManageDeliveryBoyTest.verifyDeliveryBoyNewUserCreation(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.sevenrmartsupermarket.tests.ManageDeliveryBoyTest@5505ae1a] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- terminateBrowser -->
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:com.sevenrmartsupermarket.tests.ManageDeliveryBoyTest@5505ae1a]" started-at="2023-05-09T02:27:21Z" name="launchBrowser" finished-at="2023-05-09T02:27:23Z" duration-ms="2424" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchBrowser -->
-        <test-method signature="verifyDeliveryBoyNewUserCreation(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.sevenrmartsupermarket.tests.ManageDeliveryBoyTest@5505ae1a]" started-at="2023-05-09T02:27:23Z" name="verifyDeliveryBoyNewUserCreation" data-provider="New User Creation" finished-at="2023-05-09T02:27:29Z" duration-ms="5839" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Deliveryboyusers]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[deliveryboyusers@gmail.com]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[8974267181]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[ABC address]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Delivery23]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[Delivery@1]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyDeliveryBoyNewUserCreation -->
-        <test-method is-config="true" signature="terminateBrowser(org.testng.ITestResult)[pri:0, instance:com.sevenrmartsupermarket.tests.ManageDeliveryBoyTest@5505ae1a]" started-at="2023-05-09T02:27:29Z" name="terminateBrowser" finished-at="2023-05-09T02:27:29Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=verifyDeliveryBoyNewUserCreation status=SUCCESS method=ManageDeliveryBoyTest.verifyDeliveryBoyNewUserCreation(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.sevenrmartsupermarket.tests.ManageDeliveryBoyTest@5505ae1a] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- terminateBrowser -->
-      </class> <!-- com.sevenrmartsupermarket.tests.ManageDeliveryBoyTest -->
+      </class> <!-- com.sevenrmartsupermarket.tests.ManageContentTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

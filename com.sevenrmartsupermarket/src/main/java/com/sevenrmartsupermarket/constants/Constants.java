@@ -7,4 +7,10 @@ public class Constants {
 	public static final String IMAGE_DIRECTORY=System.getProperty("user.dir")+"\\src\\main\\resources\\";
 	public static final String EXTENTREPORT_DIRECTORY=System.getProperty("user.dir")+"\\ExtentReport";
 
+	
+	
+	/*Expected Data*/
+	/*Login Page*/
+	
+	
 }

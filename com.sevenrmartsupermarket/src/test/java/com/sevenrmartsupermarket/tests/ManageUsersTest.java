@@ -2,6 +2,7 @@ package com.sevenrmartsupermarket.tests;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.sevenrmartsupermarket.base.Base;
@@ -14,7 +15,19 @@ public class ManageUsersTest extends Base {
 
 	LoginPage loginpage;
 	ManageUsersPage manageUsersPage;
-	//ScreenShot screenShot;
+
+	@Test(groups = "Sanity")
+	public void verifySearchUser() {
+		loginpage = new LoginPage(driver);
+		manageUsersPage = new ManageUsersPage(driver);
+		loginpage.loginUtility();
+		manageUsersPage.clickOnManageUsers();
+		manageUsersPage.searchUser("Tester", "7766554433", "#$%^^&&@gmail.com", "Active");
+		String expectedAlertMessage = "Tester 7766554433\n#$%^^&&@gmail.com\nUser id : 334\nDetails\n01-May-2023 Active";
+		String actualAlertMessage = manageUsersPage.getUserSearchResult();
+		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);
+
+	}
 
 	@Test(groups = "Smoke")
 	public void verifyUserStatusChangingFunctionality() {
@@ -23,27 +36,21 @@ public class ManageUsersTest extends Base {
 		loginpage.loginUtility();
 		manageUsersPage.clickOnManageUsers();
 		manageUsersPage.clickOnDeactivationButton("Abhiramkrishnakumarsreenatest d");
+		String expectedAlertMessage = "×\nAlert!\nUser Status Changed Successfully";
+		String actualAlertMessage = manageUsersPage.getUserCreationSuccessAlert();
+		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);
 	}
 
-	@Test(groups = {"Smoke","Sanity"})
+	@Test(groups = { "Smoke", "Sanity" })
 	public void verifyDeleteUser() {
 		loginpage = new LoginPage(driver);
 		manageUsersPage = new ManageUsersPage(driver);
 		loginpage.loginUtility();
 		manageUsersPage.clickOnManageUsers();
-		manageUsersPage.clickOnDeleteUserButton("abc1 Bala");
-	}
-
-	@Test(groups = "Sanity")
-	public void verifySearchUser() {
-		loginpage = new LoginPage(driver);
-		manageUsersPage = new ManageUsersPage(driver);
-		//screenShot = new ScreenShot();
-		loginpage.loginUtility();
-		manageUsersPage.clickOnManageUsers();
-		manageUsersPage.searchUser("Shabana Sulthana S L", "9567396119", "shabanassl@gmail.com", "Active");
-		System.out.println(manageUsersPage.getSearchResult());
-		
+		manageUsersPage.clickOnDeleteUserButton("Tester");
+		String expectedAlertMessage = "×\nAlert!\nUser Informations Deleted Successfully";
+		String actualAlertMessage = manageUsersPage.getUserCreationSuccessAlert();
+		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);
 	}
 
 	@Test(groups = "Smoke")
@@ -52,8 +59,9 @@ public class ManageUsersTest extends Base {
 		manageUsersPage = new ManageUsersPage(driver);
 		loginpage.loginUtility();
 		manageUsersPage.clickOnManageUsers();
-		manageUsersPage.clickOnPasswordButton("Tester");
-		System.out.println(manageUsersPage.getPassword());
+		manageUsersPage.clickOnPasswordButton("Anjaly A");
+		boolean actualResult = (manageUsersPage.is_PasswordDisplayed());
+		Assert.assertTrue(actualResult);
 
 	}
 

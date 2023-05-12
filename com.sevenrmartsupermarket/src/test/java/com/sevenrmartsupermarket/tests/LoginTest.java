@@ -30,11 +30,11 @@ public class LoginTest extends Base {
 	}
 
 	@Test
-	public void verifyLoginInvalidLoginErrorMessage() {
+	public void verifyInvalidLoginErrorMessage() {
 		loginpage = new LoginPage(driver);
 		loginpage.loginUtility("avbshj", "dffhjg");
 		String actualErrorMessage = loginpage.getErrorMessage();
-		String expectedErrorMessage = "Alert!";
+		String expectedErrorMessage = "×\nAlert!\nInvalid Username/Password";
 		Assert.assertEquals(actualErrorMessage, expectedErrorMessage);
 
 	}

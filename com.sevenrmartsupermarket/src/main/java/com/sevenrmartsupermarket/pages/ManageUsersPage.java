@@ -25,10 +25,10 @@ public class ManageUsersPage {
 	private List<WebElement> nameElement;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody/tr[5]/td[6]/a[1]")
 	private List<WebElement> actionLockElement;
+	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+	private WebElement successAlertElement;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody/tr[\"+i+\"]/td[6]/a[2]")
 	private List<WebElement> actionDeleteElement;
-	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
-	private WebElement userDeleteMessageElement;
 	@FindBy(xpath = "//a[@class='btn btn-rounded btn-primary']")
 	private WebElement searchUserButtonElement;
 	@FindBy(xpath = "//input[@id='un']")
@@ -42,11 +42,11 @@ public class ManageUsersPage {
 	@FindBy(xpath = "//button[@class='btn btn-block-sm btn-danger']")
 	private WebElement searchButtonElement;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody")
-	private List<WebElement> searchResultElement;
+	private WebElement searchResultElement;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody/tr[1]/td[3]//i[@class='fa fa-angle-double-down']")
 	private WebElement passwordElement;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody/tr//div[@class='profile-info-name']")
-	private List<WebElement> passwordResultElement;
+	private WebElement passwordResultElement;
 
 	public ManageUsersPage(WebDriver driver) {
 		this.driver = driver;
@@ -72,6 +72,11 @@ public class ManageUsersPage {
 		WebElement deactivateButton = driver.findElement(
 				By.xpath("//table[@class='table table-bordered table-hover table-sm']/tbody/tr[" + i + "]/td[6]/a[1]"));
 		pageUtility.scroll_and_click(deactivateButton);
+	}
+
+	public String getUserCreationSuccessAlert() {
+		generalUtility = new GeneralUtility(driver);
+		return generalUtility.get_textOFElement(successAlertElement);
 	}
 
 	public void clickOnDeleteUserButton(String name) {
@@ -119,9 +124,9 @@ public class ManageUsersPage {
 		clickOnSearchButton();
 	}
 
-	public List<String> getSearchResult() {
+	public String getUserSearchResult() {
 		generalUtility = new GeneralUtility(driver);
-		return generalUtility.GetTextOfElements(searchResultElement);
+		return generalUtility.get_textOFElement(searchResultElement);
 	}
 
 	public void clickOnPasswordButton(String name) {
@@ -144,9 +149,10 @@ public class ManageUsersPage {
 
 	}
 
-	public List<String> getPassword() {
+	public boolean is_PasswordDisplayed() {
 		generalUtility = new GeneralUtility(driver);
-		return generalUtility.GetTextOfElements(passwordResultElement);
+		return generalUtility.is_Displayed(passwordElement);
+
 	}
 
 }
