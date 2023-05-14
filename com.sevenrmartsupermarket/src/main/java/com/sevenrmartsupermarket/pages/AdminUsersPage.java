@@ -131,7 +131,6 @@ public class AdminUsersPage {
 				By.xpath("//table[@class='table table-bordered table-hover table-sm']/tbody/tr[" + i + "]/td[5]/a[3]"));
 		pageUtility.scroll_and_click(deleteButton);
 		pageUtility.action_acceptAlert(deleteButton);
-
 	}
 
 	public void searchAdminUser(String userName, String userType) {
