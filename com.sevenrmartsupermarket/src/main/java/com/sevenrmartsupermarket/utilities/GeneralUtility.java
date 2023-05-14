@@ -109,9 +109,13 @@ public class GeneralUtility {
 	public void action_getTextOfAlert(WebElement element) {
 		driver.switchTo().alert().getText();
 	}
-	
+
 	public static String getTimeStamp() {
 		return new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss").format(new Date());
+	}
+
+	public void backNavigation() {
+		driver.navigate().back();
 	}
 
 }

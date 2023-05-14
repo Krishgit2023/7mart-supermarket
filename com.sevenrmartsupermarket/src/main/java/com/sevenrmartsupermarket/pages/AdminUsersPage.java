@@ -86,7 +86,6 @@ public class AdminUsersPage {
 		inputPassword(password);
 		pageUtility.select_ByVisibleText(userType, userTypeElement);
 		clickOnSaveButton();
-
 	}
 
 	public String getUserCreationSuccessAlert() {

@@ -136,15 +136,6 @@ public class PageUtility {
 	}
 
 	/**
-	 * method to upload file
-	 */
-
-	public void fileUpload(WebElement element, String fileName) {
-		File fileupload = new File(Constants.IMAGE_DIRECTORY + fileName + ".jpeg");
-		element.sendKeys(fileupload.getAbsolutePath());
-	}
-
-	/**
 	 * method to Accept Alert
 	 */
 
@@ -167,20 +158,19 @@ public class PageUtility {
 	public void action_giveTextInAlert(String text) {
 		driver.switchTo().alert().sendKeys(text);
 	}
-	
+
 	/**
 	 * method to upload File
 	 */
-	
+
 	public void uploadFile(WebElement element, String fileName) {
 		try {
-			File file = new File(Constants.IMAGE_DIRECTORY+fileName);
+			File file = new File(Constants.IMAGE_DIRECTORY + fileName);
 			element.sendKeys(file.getAbsolutePath());
 		} catch (Exception e) {
 			e.printStackTrace();
-		
+
 		}
 	}
-	
 
 }

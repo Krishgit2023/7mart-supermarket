@@ -29,6 +29,7 @@ public class DataProviders {
 		return new Object[][] { { "Krishna", "Krishna@123", "Staff" }, { "Krishna", "Krishna@123", "Admin" },
 				{ "Krishna", "Krishna@123", "Partner" }, { "Krishna", "Krishna@123", "Delivery Boy" } };
 	}
+	
 
 
 }
