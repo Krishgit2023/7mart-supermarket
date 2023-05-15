@@ -33,7 +33,6 @@ public class ManageContentTest extends Base {
 		manageContentPage = new ManageContentPage(driver);
 		loginPage.loginUtility();
 		manageContentPage.editPage();
-
 	}
 
 	@Test
