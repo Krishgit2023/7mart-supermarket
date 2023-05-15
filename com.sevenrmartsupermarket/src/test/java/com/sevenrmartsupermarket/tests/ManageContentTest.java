@@ -69,7 +69,6 @@ public class ManageContentTest extends Base {
 		String expectedAlertMessage = "×\nAlert!\nNews Created Successfully";
 		String actualAlertMessage = manageContentPage.getSuccessAlert();
 		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);
-
 	}
 
 }
