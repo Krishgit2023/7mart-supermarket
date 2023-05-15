@@ -94,7 +94,6 @@ public class LoginPage {
 	public boolean is_SignInButtonEnabled() {
 		generalUtility = new GeneralUtility(driver);
 		return generalUtility.is_enabled(signinButtonElement);
-
 	}
 
 }
