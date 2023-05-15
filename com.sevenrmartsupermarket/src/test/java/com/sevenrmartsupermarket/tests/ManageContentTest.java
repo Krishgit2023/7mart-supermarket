@@ -46,7 +46,6 @@ public class ManageContentTest extends Base {
 		String expectedAlertMessage = "×\nAlert!\nPage Deleted Successfully";
 		String actualAlertMessage = manageContentPage.getSuccessAlert();
 		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);
-
 	}
 
 	@Test
