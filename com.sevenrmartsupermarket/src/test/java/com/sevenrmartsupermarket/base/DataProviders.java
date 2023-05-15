@@ -29,7 +29,12 @@ public class DataProviders {
 		return new Object[][] { { "Krishna", "Krishna@123", "Staff" }, { "Krishna", "Krishna@123", "Admin" },
 				{ "Krishna", "Krishna@123", "Partner" }, { "Krishna", "Krishna@123", "Delivery Boy" } };
 	}
-	
 
+	@DataProvider(name = "Push Notification Data")
+	public Object[][] DataProviderPushnotificationData() {
+		excelReader.setExcelFile("Pushnotificationdata", "notificationdata");
+		Object data[][] = excelReader.getMultidimentionalData(2, 2);
+		return data;
+	}
 
 }

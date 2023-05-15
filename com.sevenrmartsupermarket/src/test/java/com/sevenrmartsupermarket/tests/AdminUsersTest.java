@@ -72,16 +72,15 @@ public class AdminUsersTest extends Base {
 
 	}
 
-	@Test // doubts on expected result
+	@Test
 	public void verifySearchUserFunctionality() {
 		loginpage = new LoginPage(driver);
 		adminUsersPage = new AdminUsersPage(driver);
 		loginpage.loginUtility();
 		adminUsersPage.clickOnAdminUsers();
 		adminUsersPage.searchAdminUser("News User1", "Staff");
-		String expectedAlertMessage = "";
-		String actualAlertMessage = adminUsersPage.getAdminUserSearchResult();
-		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);
+		boolean actualResult = (adminUsersPage.is_SearchResultDisplayed());
+		Assert.assertTrue(actualResult);
 	}
 
 }

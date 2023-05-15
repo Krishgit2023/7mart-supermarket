@@ -58,28 +58,27 @@ public class Base {
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 	}
-	
+
 	@Parameters("browser")
 	@BeforeMethod(alwaysRun = true, enabled = false)
 	public void launchBrowser(String browser) {
-		
+
 		String url = properties.getProperty("url");
 		initialize(browser, url);
 	}
-	
+
 	@BeforeMethod(alwaysRun = true, enabled = true)
 	public void launchBrowser() {
 		String browser = properties.getProperty("browser");
 		String url = properties.getProperty("url");
 		initialize(browser, url);
 	}
-	
+
 	@AfterMethod(alwaysRun = true)
 	public void terminateBrowser(ITestResult itestresult) {
-		if (itestresult.getStatus()==ITestResult.FAILURE) {
+		if (itestresult.getStatus() == ITestResult.FAILURE) {
 			screenShot.takeScreenShot(driver, itestresult.getName());
 		}
-		//driver.close();
 	}
 
 }

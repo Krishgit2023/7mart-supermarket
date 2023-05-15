@@ -26,7 +26,8 @@ public class ExtentReporter implements IReporter {
 	private ExtentReports extent;
 
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
-		extent = new ExtentReports(Constants.EXTENTREPORT_DIRECTORY + File.separator + "ExtentReport"+GeneralUtility.getTimeStamp()+".html", true);
+		extent = new ExtentReports(Constants.EXTENTREPORT_DIRECTORY + File.separator + "ExtentReport"
+				+ GeneralUtility.getTimeStamp() + ".html", true);
 
 		for (ISuite suite : suites) {
 			Map<String, ISuiteResult> result = suite.getResults();

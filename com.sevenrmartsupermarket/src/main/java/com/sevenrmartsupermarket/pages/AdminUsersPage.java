@@ -141,9 +141,10 @@ public class AdminUsersPage {
 		searchSubmitButtonElement.click();
 	}
 
-	public String getAdminUserSearchResult() {
+	public boolean is_SearchResultDisplayed() {
 		generalUtility = new GeneralUtility(driver);
-		return generalUtility.get_textOFElement(searchResultElement);
+		return generalUtility.is_Displayed(searchResultElement);
+
 	}
 
 	public void clickOnLogout() {

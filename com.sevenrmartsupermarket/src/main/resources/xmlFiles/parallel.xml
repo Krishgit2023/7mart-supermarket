@@ -7,12 +7,10 @@
 			<class name="com.sevenrmartsupermarket.tests.ManageUsersTest"></class>
 		</classes>
 	</test>
-	
 	<test name="Smoke Test">
 		<classes>
 			<class name="com.sevenrmartsupermarket.tests.AdminUsersTest"></class>
 			<class name="com.sevenrmartsupermarket.tests.PushNotificationTest"></class>
-			
 		</classes>
 	</test>
 </suite>

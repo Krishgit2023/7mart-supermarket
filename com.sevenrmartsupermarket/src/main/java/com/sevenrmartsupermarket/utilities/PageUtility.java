@@ -55,9 +55,6 @@ public class PageUtility {
 
 	/**
 	 * method to select element by visible text
-	 * 
-	 * @param text
-	 * @param element
 	 */
 
 	public void select_ByVisibleText(String text, WebElement element) {
@@ -68,9 +65,6 @@ public class PageUtility {
 
 	/**
 	 * method to select element by index
-	 * 
-	 * @param index
-	 * @param element
 	 */
 
 	public void select_ByIndex(int index, WebElement element) {
@@ -80,9 +74,6 @@ public class PageUtility {
 
 	/**
 	 * method to select element by value
-	 * 
-	 * @param value
-	 * @param element
 	 */
 
 	public void select_ByValue(String value, WebElement element) {
@@ -92,8 +83,6 @@ public class PageUtility {
 
 	/**
 	 * method to mouse over the element
-	 * 
-	 * @param element
 	 */
 
 	public void action_MoveToElement(WebElement element) {
@@ -103,8 +92,6 @@ public class PageUtility {
 
 	/**
 	 * method to double click the element
-	 * 
-	 * @param element
 	 */
 
 	public void action_DoubleClick(WebElement element) {
@@ -114,9 +101,6 @@ public class PageUtility {
 
 	/**
 	 * method to drag and drop the element
-	 * 
-	 * @param source
-	 * @param target
 	 */
 
 	public void action_DragAndDrop(WebElement source, WebElement target) {
@@ -126,8 +110,6 @@ public class PageUtility {
 
 	/**
 	 * method to right click the element
-	 * 
-	 * @param element
 	 */
 
 	public void action_RightClick(WebElement element) {

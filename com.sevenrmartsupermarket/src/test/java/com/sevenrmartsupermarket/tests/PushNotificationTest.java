@@ -1,26 +1,29 @@
 package com.sevenrmartsupermarket.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.sevenrmartsupermarket.base.Base;
+import com.sevenrmartsupermarket.base.DataProviders;
+import com.sevenrmartsupermarket.pages.LoginPage;
+import com.sevenrmartsupermarket.pages.ManageSliderPage;
 import com.sevenrmartsupermarket.pages.PushNotificationPage;
 import com.sevenrmartsupermarket.utilities.ExcelReader;
 
-public class PushNotificationTest extends Base{
-	PushNotificationPage pushnotificationpage;
-	ExcelReader excelreader=new ExcelReader();
+public class PushNotificationTest extends Base {
 
-	
-	@Test
-	public void verifyPushNotification() {
-		pushnotificationpage= new PushNotificationPage (driver);
-		pushnotificationpage.clickPushNotification();
-		excelreader.setExcelFile("Pushnotificationdata", "notificationdata");
-		String title=excelreader.getCellData(1,0 );
-		System.out.println(title);
-		
-	
- 
-}
+	LoginPage loginPage;
+	PushNotificationPage pushnotificationpage;
+
+	@Test(dataProvider = "Push Notification Data", dataProviderClass = DataProviders.class)
+	public void verifyPushNotifications(String title, String description) {
+		loginPage = new LoginPage(driver);
+		pushnotificationpage = new PushNotificationPage(driver);
+		loginPage.loginUtility();
+		pushnotificationpage.sendPushNotification(title, description);
+		String expectedAlertMessage = "×\nAlert!\nMessage send successfully";
+		String actualAlertMessage = pushnotificationpage.getUserActionAlertMessage();
+		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);
+	}
 
 }

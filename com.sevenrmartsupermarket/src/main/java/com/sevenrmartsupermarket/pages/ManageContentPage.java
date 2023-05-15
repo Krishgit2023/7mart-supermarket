@@ -1,5 +1,9 @@
 package com.sevenrmartsupermarket.pages;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -34,6 +38,20 @@ public class ManageContentPage {
 	private WebElement successAlertElement;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody/tr[1]/td[5]//i[@class='fas fa-edit']")
 	private WebElement editActionElement;
+	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody/tr/td[1]")
+	private List<WebElement> tableElements;
+	@FindBy(xpath = "//p[contains(text(),'Manage Footer Text')]")
+	private WebElement footerTextElement;
+	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody/tr[1]/td[4]/a")
+	private WebElement footerEditActionElement;
+	@FindBy(xpath = "//button[@type='submit']")
+	private WebElement submitButtonElement;
+	@FindBy(xpath = "//p[contains(text(),'Manage News')]")
+	private WebElement manageNewsElement;
+	@FindBy(xpath = "//a[@class='btn btn-rounded btn-danger']")
+	private WebElement newsPageNewButtonElement;
+	@FindBy(xpath = "//textarea[@id='news']")
+	private WebElement enterNewsElement;
 
 	public ManageContentPage(WebDriver driver) {
 		this.driver = driver;
@@ -69,7 +87,7 @@ public class ManageContentPage {
 		pageUtility.uploadFile(imageUploadElement, imageName);
 	}
 
-	public String getPageCreationSuccessAlert() {
+	public String getSuccessAlert() {
 		generalUtility = new GeneralUtility(driver);
 		return generalUtility.get_textOFElement(successAlertElement);
 	}
@@ -87,17 +105,78 @@ public class ManageContentPage {
 		pageUtility.scroll_and_click(saveButtonElement);
 		generalUtility.backNavigation();
 	}
-	
+
 	public void clickOnEditButton() {
 		editActionElement.click();
 	}
-	
+
 	public void editPage() {
 		pageUtility = new PageUtility(driver);
 		generalUtility = new GeneralUtility(driver);
 		clickOnManageContent();
 		clickOnManagePage();
 		clickOnEditButton();
+	}
+
+	public void clickOnDeleteUserButton(String name) {
+		generalUtility = new GeneralUtility(driver);
+		pageUtility = new PageUtility(driver);
+		List<String> userNames = new ArrayList<String>();
+		userNames = generalUtility.GetTextOfElements(tableElements);
+		int i;
+		for (i = 0; i < userNames.size(); i++) {
+			if (name.equals(userNames.get(i))) {
+				i++;
+				break;
+			}
+		}
+		WebElement deleteButton = driver.findElement(
+				By.xpath("//table[@class='table table-bordered table-hover table-sm']/tbody/tr[" + i + "]/td[5]/a[2]"));
+		pageUtility.scroll_and_click(deleteButton);
+		pageUtility.action_acceptAlert(deleteButton);
+	}
+
+	public void clickOnFooterText() {
+		footerTextElement.click();
+	}
+
+	public void clickOnFooterEditActionButton() {
+		footerEditActionElement.click();
+	}
+
+	public void clickOnUpdateButton() {
+		submitButtonElement.click();
+	}
+
+	public void updateFooterText() {
+		clickOnManageContent();
+		clickOnFooterText();
+		clickOnFooterEditActionButton();
+		clickOnUpdateButton();
+	}
+
+	public void clickOnManageNews() {
+		manageNewsElement.click();
+	}
+
+	public void clickOnNewsPageNewButton() {
+		newsPageNewButtonElement.click();
+	}
+
+	public void inputNews(String news) {
+		enterNewsElement.sendKeys(news);
+	}
+
+	public void clickonSaveButton() {
+		submitButtonElement.click();
+	}
+
+	public void createNews(String news) {
+		clickOnManageContent();
+		clickOnManageNews();
+		clickOnNewsPageNewButton();
+		inputNews(news);
+		clickonSaveButton();
 	}
 
 }

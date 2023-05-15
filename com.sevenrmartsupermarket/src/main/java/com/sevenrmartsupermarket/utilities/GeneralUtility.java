@@ -18,9 +18,6 @@ public class GeneralUtility {
 
 	/**
 	 * method to get text of the element
-	 * 
-	 * @param element
-	 * @return string
 	 */
 
 	public String get_textOFElement(WebElement element) {
@@ -29,9 +26,6 @@ public class GeneralUtility {
 
 	/**
 	 * method to get text of list of elements
-	 * 
-	 * @param listOfElements
-	 * @return list<string>
 	 */
 
 	public List<String> GetTextOfElements(List<WebElement> Listofelements) {
@@ -46,9 +40,6 @@ public class GeneralUtility {
 
 	/**
 	 * method to check element is displayed
-	 * 
-	 * @param element
-	 * @return boolean
 	 */
 
 	public boolean is_Displayed(WebElement element) {
@@ -57,9 +48,6 @@ public class GeneralUtility {
 
 	/**
 	 * method to check element is enabled
-	 * 
-	 * @param element
-	 * @return boolean
 	 */
 
 	public boolean is_enabled(WebElement element) {
@@ -68,9 +56,6 @@ public class GeneralUtility {
 
 	/**
 	 * method to check element is selected
-	 * 
-	 * @param element
-	 * @return boolean
 	 */
 
 	public boolean is_selected(WebElement element) {
@@ -110,9 +95,17 @@ public class GeneralUtility {
 		driver.switchTo().alert().getText();
 	}
 
+	/**
+	 * method to create timestamp
+	 */
+
 	public static String getTimeStamp() {
 		return new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss").format(new Date());
 	}
+
+	/**
+	 * method for back navigation
+	 */
 
 	public void backNavigation() {
 		driver.navigate().back();
