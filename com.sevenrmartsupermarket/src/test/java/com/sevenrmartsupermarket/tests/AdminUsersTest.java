@@ -27,6 +27,7 @@ public class AdminUsersTest extends Base {
 		String expectedAlertMessage = "×\nAlert!\nUser Created Successfully";
 		String actualAlertMessage = adminUsersPage.getUserCreationSuccessAlert();
 		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);
+		//edit this to another test
 		adminUsersPage.clickOnLogout();
 		loginpage.loginUtility(usersName, password);
 		String expectedProfileName = usersName;

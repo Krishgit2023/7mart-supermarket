@@ -52,12 +52,12 @@ public class ManageLocationPage {
 		newButtonElement.click();
 	}
 
-	public void inputCountry() {
+	public void inputCountry() { //parameter
 		select = new Select(countryElement);
 		select.selectByVisibleText("United Kingdom");
 	}
 
-	public void inputState() {
+	public void inputState() {  //parameter
 		select = new Select(stateElement);
 		select.selectByVisibleText("Belfast");
 	}

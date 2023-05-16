@@ -45,7 +45,7 @@ public class ManageContentTest extends Base {
 		manageContentPage.clickOnDeleteUserButton("dfvd");
 		String expectedAlertMessage = "×\nAlert!\nPage Deleted Successfully";
 		String actualAlertMessage = manageContentPage.getSuccessAlert();
-		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);
+		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);  // add message
 	}
 
 	@Test

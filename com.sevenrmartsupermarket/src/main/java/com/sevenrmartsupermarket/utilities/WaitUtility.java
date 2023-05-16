@@ -18,34 +18,37 @@ public class WaitUtility {
 		this.driver = driver;
 	}
 
-	public void waitForElemenetToBeVisible(String xpath) {
+	public void waitForElementToBeVisible(String xpath) {
 		Wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT));
 		Wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 	}
 
-	public void waitForElemenetToBeVisible(WebElement element) {
+	public void waitForElementToBeVisible(WebElement element) {
 		Wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT));
 		Wait.until(ExpectedConditions.visibilityOf(element));
 	}
 
-	public void waitForElemenetToBeClickable(String xpath) {
+	public void waitForElementToBeClickable(String xpath) {
 		Wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT));
 		Wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 	}
 
-	public void waitForElemenetToBeClickable(WebElement element) {
+	public void waitForElementToBeClickable(WebElement element) {
 		Wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT));
 		Wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
 
-	public void waitForElemenetToBeInvisible(String xpath) {
+	public void waitForElementToBeInvisible(String xpath) {
 		Wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT));
 		Wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(xpath)));
 	}
 
-	public void waitForElemenetToBeInvisible(WebElement element) {
+	public void waitForElementToBeInvisible(WebElement element) {
 		Wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT));
 		Wait.until(ExpectedConditions.invisibilityOf(element));
 	}
+	
+	//add fluent wait 
+	//alert to be visible -explivit wait
 
 }
