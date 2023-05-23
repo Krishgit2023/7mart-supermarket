@@ -21,6 +21,11 @@ public class ManageDeliveryBoyPage {
 	GeneralUtility generalUtility;
 	PageUtility pageUtility;
 
+	public ManageDeliveryBoyPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+
 	@FindBy(xpath = "//p[text()='Manage Delivery Boy']")
 	private WebElement manageDeliveryBoyElement;
 	@FindBy(xpath = "//a[@class='btn btn-rounded btn-danger']")
@@ -56,11 +61,6 @@ public class ManageDeliveryBoyPage {
 	private WebElement searchElement;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody/tr[1]")
 	private WebElement searchResultElement;
-
-	public ManageDeliveryBoyPage(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
-	}
 
 	public void clickOnManageDeliverBoy() {
 		manageDeliveryBoyElement.click();

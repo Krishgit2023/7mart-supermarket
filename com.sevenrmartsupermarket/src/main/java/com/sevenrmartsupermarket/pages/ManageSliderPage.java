@@ -14,6 +14,11 @@ public class ManageSliderPage {
 	PageUtility pageUtility;
 	GeneralUtility generalUtility;
 
+	public ManageSliderPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+
 	@FindBy(xpath = "//p[contains(text(),'Manage Slider')]")
 	private WebElement manageSliderElement;
 	@FindBy(xpath = "//a[@class='btn btn-rounded btn-danger']")
@@ -32,11 +37,6 @@ public class ManageSliderPage {
 	private WebElement trashElement;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody/tr[1]/td[4]/a[2]")
 	private WebElement deleteElement;
-
-	public ManageSliderPage(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
-	}
 
 	public void clickOnManageSlider() {
 		manageSliderElement.click();

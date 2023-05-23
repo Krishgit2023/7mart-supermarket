@@ -17,21 +17,6 @@ public class LoginPage {
 	FileInputStream fileinputstream;
 	GeneralUtility generalUtility;
 
-	@FindBy(xpath = "//input[@name='username']")
-	private WebElement userNamElement;
-	@FindBy(xpath = "//input[@name='password']")
-	private WebElement passwordElement;
-	@FindBy(xpath = "//button[@class='btn btn-dark btn-block']")
-	private WebElement signinButtonElement;
-	@FindBy(xpath = "//div[@class='info']")
-	private WebElement profileNameElement;
-	@FindBy(xpath = "//label[@for='remember']")
-	private WebElement rememberCheckBox;
-	@FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
-	private WebElement invalidLoginErrorMessage;
-	@FindBy(xpath = "//span[@class='brand-text font-weight-light']")
-	private WebElement sevenMartLogo;
-
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -43,6 +28,21 @@ public class LoginPage {
 			e.printStackTrace();
 		}
 	}
+
+	@FindBy(xpath = "//input[@name='username']")
+	private WebElement userNamElement;
+	@FindBy(xpath = "//input[@name='password']")
+	private WebElement passwordElement;
+	@FindBy(xpath = "//button[@class='btn btn-dark btn-block']")
+	private WebElement signinButtonElement;
+	@FindBy(xpath = "//div[@class='info']")
+	private WebElement profileNameElement;
+	@FindBy(xpath = "//label[@for='remember']")
+	private WebElement rememberCheckBox;
+	@FindBy(xpath = "//h5[contains(text(),' Alert!')]")
+	private WebElement invalidLoginErrorMessage;
+	@FindBy(xpath = "//span[@class='brand-text font-weight-light']")
+	private WebElement sevenMartLogo;
 
 	public void enterUserName(String userName) {
 		userNamElement.sendKeys(userName);

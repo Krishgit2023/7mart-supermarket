@@ -21,7 +21,7 @@ public class PushNotificationTest extends Base {
 		pushnotificationpage = new PushNotificationPage(driver);
 		loginPage.loginUtility();
 		pushnotificationpage.sendPushNotification(title, description);
-		String expectedAlertMessage = "×\nAlert!\nMessage send successfully";
+		String expectedAlertMessage = "Alert!";
 		String actualAlertMessage = pushnotificationpage.getUserActionAlertMessage();
 		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);
 	}

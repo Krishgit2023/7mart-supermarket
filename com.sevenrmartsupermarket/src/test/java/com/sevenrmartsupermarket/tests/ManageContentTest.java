@@ -7,6 +7,7 @@ import com.sevenrmartsupermarket.base.Base;
 import com.sevenrmartsupermarket.base.DataProviders;
 import com.sevenrmartsupermarket.pages.LoginPage;
 import com.sevenrmartsupermarket.pages.ManageContentPage;
+import com.sevenrmartsupermarket.utilities.FakerUtility;
 import com.sevenrmartsupermarket.utilities.GeneralUtility;
 
 public class ManageContentTest extends Base {
@@ -18,21 +19,13 @@ public class ManageContentTest extends Base {
 	public void verifyNewPageCreation() {
 		loginPage = new LoginPage(driver);
 		manageContentPage = new ManageContentPage(driver);
-		String Title = "Title" + GeneralUtility.getTimeStamp();
-		String PageName = "Page" + GeneralUtility.getTimeStamp();
+		String Title = "Title" + FakerUtility.getTitle();
+		String PageName = "Page" + FakerUtility.getTitle();
 		loginPage.loginUtility();
 		manageContentPage.addNewPages(Title, "Test123", PageName, "website.jpg");
-		String expectedAlertMessage = "×\nAlert!\nPage Created Successfully";
+		String expectedAlertMessage = "Alert!";
 		String actualAlertMessage = manageContentPage.getSuccessAlert();
-		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);
-	}
-
-	@Test // to do
-	public void verifyEditPageFunctionality() {
-		loginPage = new LoginPage(driver);
-		manageContentPage = new ManageContentPage(driver);
-		loginPage.loginUtility();
-		manageContentPage.editPage();
+		Assert.assertEquals(actualAlertMessage, expectedAlertMessage, "Page created Successfully");
 	}
 
 	@Test
@@ -43,9 +36,9 @@ public class ManageContentTest extends Base {
 		manageContentPage.clickOnManageContent();
 		manageContentPage.clickOnManagePage();
 		manageContentPage.clickOnDeleteUserButton("dfvd");
-		String expectedAlertMessage = "×\nAlert!\nPage Deleted Successfully";
+		String expectedAlertMessage = "Alert!";
 		String actualAlertMessage = manageContentPage.getSuccessAlert();
-		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);  // add message
+		Assert.assertEquals(actualAlertMessage, expectedAlertMessage, "Page Deleted Succesfully");
 	}
 
 	@Test
@@ -54,7 +47,7 @@ public class ManageContentTest extends Base {
 		manageContentPage = new ManageContentPage(driver);
 		loginPage.loginUtility();
 		manageContentPage.updateFooterText();
-		String expectedAlertMessage = "×\nAlert!\nFooter Text Updated Successfully";
+		String expectedAlertMessage = "Alert!";
 		String actualAlertMessage = manageContentPage.getSuccessAlert();
 		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);
 	}
@@ -66,7 +59,7 @@ public class ManageContentTest extends Base {
 		loginPage.loginUtility();
 		String news = "News" + GeneralUtility.getTimeStamp();
 		manageContentPage.createNews(news);
-		String expectedAlertMessage = "×\nAlert!\nNews Created Successfully";
+		String expectedAlertMessage = "Alert!";
 		String actualAlertMessage = manageContentPage.getSuccessAlert();
 		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);
 	}

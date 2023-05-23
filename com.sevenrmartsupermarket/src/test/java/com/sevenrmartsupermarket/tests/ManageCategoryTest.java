@@ -19,6 +19,7 @@ public class ManageCategoryTest extends Base {
 		manageCategoryPage = new ManageCategoryPage(driver);
 		loginPage.loginUtility();
 		manageCategoryPage.createNewCategory("Heavy duty Dress", "website.jpg");
+		manageCategoryPage.elementVisibility();
 		String expectedAlertMessage = "Alert!";
 		String actualAlertMessage = manageCategoryPage.getSuccessAlert();
 		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);
@@ -53,7 +54,7 @@ public class ManageCategoryTest extends Base {
 		loginPage.loginUtility();
 		manageCategoryPage.clickOnManageCategory();
 		manageCategoryPage.clickOnSubCategory();
-		manageCategoryPage.clickOnDeleteSubCategoryButton("Zucchini");
+		manageCategoryPage.clickOnDeleteSubCategoryButton("Peppers");
 		String expectedAlertMessage = "Alert!";
 		String actualAlertMessage = manageCategoryPage.getSuccessAlert();
 		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);

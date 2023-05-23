@@ -14,6 +14,11 @@ public class ManageLocationPage {
 	GeneralUtility generalUtility;
 	Select select;
 
+	public ManageLocationPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+
 	@FindBy(xpath = "//p[contains(text(),'Manage Location')]")
 	private WebElement manageLocationElement;
 	@FindBy(xpath = "//a[@class='btn btn-rounded btn-danger']")
@@ -28,21 +33,16 @@ public class ManageLocationPage {
 	private WebElement deliveryChargeElement;
 	@FindBy(xpath = "//button[@type='submit']")
 	private WebElement submitButtonElement;
-	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+	@FindBy(xpath = "//h5[contains(text(),' Alert!')]")
 	private WebElement successAlertElement;
 	@FindBy(xpath = "//a[@class='btn btn-rounded btn-primary']")
 	private WebElement searchLocationButtonElement;
 	@FindBy(xpath = "//select[@id='country_id']")
 	private WebElement searchCountryElement;
-	@FindBy(xpath = "//select[@id='st_id']")
+	@FindBy(xpath = "//select[@name='state_id']")
 	private WebElement searchStateElement;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody/tr")
 	private WebElement searchResultElement;
-
-	public ManageLocationPage(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
-	}
 
 	public void clickOnManageLocation() {
 		manageLocationElement.click();
@@ -52,14 +52,14 @@ public class ManageLocationPage {
 		newButtonElement.click();
 	}
 
-	public void inputCountry() { //parameter
+	public void inputCountry(String country) {
 		select = new Select(countryElement);
-		select.selectByVisibleText("United Kingdom");
+		select.selectByVisibleText(country);
 	}
 
-	public void inputState() {  //parameter
+	public void inputState(String state) {
 		select = new Select(stateElement);
-		select.selectByVisibleText("Belfast");
+		select.selectByVisibleText(state);
 	}
 
 	public void inputLocation(String location) {
@@ -79,11 +79,11 @@ public class ManageLocationPage {
 		return generalUtility.get_textOFElement(successAlertElement);
 	}
 
-	public void createNewLocation(String location, String deliveryCharge) {
+	public void createNewLocation(String country, String state, String location, String deliveryCharge) {
 		clickOnManageLocation();
 		clickOnNewButton();
-		inputCountry();
-		inputState();
+		inputCountry(country);
+		inputState(state);
 		inputLocation(location);
 		inputDeliveryCharge(deliveryCharge);
 		clickOnSaveButton();
@@ -93,21 +93,21 @@ public class ManageLocationPage {
 		searchLocationButtonElement.click();
 	}
 
-	public void inputSearchCountry() {
+	public void inputSearchCountry(String country) {
 		select = new Select(searchCountryElement);
-		select.selectByVisibleText("United Kingdom");
+		select.selectByVisibleText(country);
 	}
 
-	public void inputSearchState() {
+	public void inputSearchState(String state) {
 		select = new Select(searchStateElement);
-		select.selectByVisibleText("Aberdeen");
+		select.selectByVisibleText(state);
 	}
 
-	public void searchLocation() {
+	public void searchLocation(String country, String state) {
 		clickOnManageLocation();
 		clickOnSearchLocationButton();
-		inputSearchCountry();
-		inputSearchState();
+		inputSearchCountry(country);
+		inputSearchState(state);
 		clickOnSaveButton();
 	}
 

@@ -18,8 +18,8 @@ public class ManageLocationTest extends Base {
 		loginPage = new LoginPage(driver);
 		manageLocationPage = new ManageLocationPage(driver);
 		loginPage.loginUtility();
-		manageLocationPage.createNewLocation("Lake Thelma", "500");
-		String expectedAlertMessage = "×\nAlert!\nLocation Created Successfully";
+		manageLocationPage.createNewLocation("United Kingdom", "Aberdeen", "Lake Thelma", "500");
+		String expectedAlertMessage = "Alert!";
 		String actualAlertMessage = manageLocationPage.getSuccessAlert();
 		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);
 	}
@@ -29,7 +29,7 @@ public class ManageLocationTest extends Base {
 		loginPage = new LoginPage(driver);
 		manageLocationPage = new ManageLocationPage(driver);
 		loginPage.loginUtility();
-		manageLocationPage.searchLocation();
+		manageLocationPage.searchLocation("United Kingdom", "Aberdeen");
 		boolean actualResult = (manageLocationPage.is_SearchResultDisplayed());
 		Assert.assertTrue(actualResult);
 

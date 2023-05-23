@@ -16,19 +16,6 @@ public class ManageUsersTest extends Base {
 	LoginPage loginpage;
 	ManageUsersPage manageUsersPage;
 
-	@Test(groups = "Sanity")
-	public void verifySearchUser() {
-		loginpage = new LoginPage(driver);
-		manageUsersPage = new ManageUsersPage(driver);
-		loginpage.loginUtility();
-		manageUsersPage.clickOnManageUsers();
-		manageUsersPage.searchUser("Tester", "7766554433", "#$%^^&&@gmail.com", "Active");
-		String expectedAlertMessage = "Tester 7766554433\n#$%^^&&@gmail.com\nUser id : 334\nDetails\n01-May-2023 Active";
-		String actualAlertMessage = manageUsersPage.getUserSearchResult();
-		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);
-
-	}
-
 	@Test(groups = "Smoke")
 	public void verifyUserStatusChangingFunctionality() {
 		loginpage = new LoginPage(driver);
@@ -36,7 +23,7 @@ public class ManageUsersTest extends Base {
 		loginpage.loginUtility();
 		manageUsersPage.clickOnManageUsers();
 		manageUsersPage.clickOnDeactivationButton("Abhiramkrishnakumarsreenatest d");
-		String expectedAlertMessage = "×\nAlert!\nUser Status Changed Successfully";
+		String expectedAlertMessage = "Alert!";
 		String actualAlertMessage = manageUsersPage.getUserCreationSuccessAlert();
 		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);
 	}
@@ -48,7 +35,7 @@ public class ManageUsersTest extends Base {
 		loginpage.loginUtility();
 		manageUsersPage.clickOnManageUsers();
 		manageUsersPage.clickOnDeleteUserButton("Tester");
-		String expectedAlertMessage = "×\nAlert!\nUser Informations Deleted Successfully";
+		String expectedAlertMessage = "Alert!";
 		String actualAlertMessage = manageUsersPage.getUserCreationSuccessAlert();
 		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);
 	}

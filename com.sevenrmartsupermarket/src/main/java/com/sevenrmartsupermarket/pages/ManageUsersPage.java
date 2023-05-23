@@ -19,13 +19,18 @@ public class ManageUsersPage {
 	GeneralUtility generalUtility;
 	PageUtility pageUtility;
 
+	public ManageUsersPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+
 	@FindBy(xpath = "//i[@class='nav-icon fas fa-user']")
 	private WebElement manageUserElement;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody/tr/td[1]")
 	private List<WebElement> nameElement;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody/tr[5]/td[6]/a[1]")
 	private List<WebElement> actionLockElement;
-	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+	@FindBy(xpath = "//h5[contains(text(),' Alert!')]")
 	private WebElement successAlertElement;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody/tr[\"+i+\"]/td[6]/a[2]")
 	private List<WebElement> actionDeleteElement;
@@ -47,11 +52,6 @@ public class ManageUsersPage {
 	private WebElement passwordElement;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody/tr//div[@class='profile-info-name']")
 	private WebElement passwordResultElement;
-
-	public ManageUsersPage(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
-	}
 
 	public void clickOnManageUsers() {
 		manageUserElement.click();

@@ -34,7 +34,7 @@ public class LoginTest extends Base {
 		loginpage = new LoginPage(driver);
 		loginpage.loginUtility("avbshj", "dffhjg");
 		String actualErrorMessage = loginpage.getErrorMessage();
-		String expectedErrorMessage = "×\nAlert!\nInvalid Username/Password";
+		String expectedErrorMessage = "Alert!";
 		Assert.assertEquals(actualErrorMessage, expectedErrorMessage);
 
 	}

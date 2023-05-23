@@ -41,15 +41,10 @@ public class Base {
 
 	public void initialize(String browser, String url) {
 		if (browser.equals("chrome")) {
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--remote-allow-origins=*");
-			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver(options);
+			driver = new ChromeDriver();
 		} else if (browser.equals("firefox")) {
-			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 		} else if (browser.equals("edge")) {
-			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
 		}
 

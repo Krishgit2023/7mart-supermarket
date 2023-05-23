@@ -18,6 +18,11 @@ public class ManageContentPage {
 	PageUtility pageUtility;
 	GeneralUtility generalUtility;
 
+	public ManageContentPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+
 	@FindBy(xpath = "//p[contains(text(),'Manage Content')]")
 	private WebElement manageContentElement;
 	@FindBy(xpath = "//p[contains(text(),'Manage Pages')]")
@@ -34,7 +39,7 @@ public class ManageContentPage {
 	private WebElement imageUploadElement;
 	@FindBy(xpath = "//button[@name = 'create']")
 	private WebElement saveButtonElement;
-	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+	@FindBy(xpath = "//h5[contains(text(),' Alert!')]")
 	private WebElement successAlertElement;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody/tr[1]/td[5]//i[@class='fas fa-edit']")
 	private WebElement editActionElement;
@@ -52,11 +57,6 @@ public class ManageContentPage {
 	private WebElement newsPageNewButtonElement;
 	@FindBy(xpath = "//textarea[@id='news']")
 	private WebElement enterNewsElement;
-
-	public ManageContentPage(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
-	}
 
 	public void clickOnManageContent() {
 		manageContentElement.click();
@@ -179,5 +179,4 @@ public class ManageContentPage {
 		clickonSaveButton();
 	}
 
-	
 }

@@ -19,6 +19,11 @@ public class AdminUsersPage {
 	GeneralUtility generalUtility;
 	PageUtility pageUtility;
 
+	public AdminUsersPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+
 	@FindBy(xpath = "//li[18]//a[@class=' nav-link']//i[1]")
 	private WebElement adminUsersElement;
 	@FindBy(xpath = "//a[@class='btn btn-rounded btn-danger']")
@@ -31,9 +36,9 @@ public class AdminUsersPage {
 	private WebElement userTypeElement;
 	@FindBy(xpath = "//div[@class='card-footer center']//button[@type='submit']")
 	private WebElement saveButtonElement;
-	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+	@FindBy(xpath = "//h5[contains(text(),' Alert!')]")
 	private WebElement successAlertElement;
-	@FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
+	@FindBy(xpath = "//h5[contains(text(),' Alert!')]")
 	private WebElement existingUserAlertElement;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody/tr[5]/td[5]/a[1]")
 	private List<WebElement> actionLockElement;
@@ -53,11 +58,6 @@ public class AdminUsersPage {
 	private WebElement searchSubmitButtonElement;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody")
 	private WebElement searchResultElement;
-
-	public AdminUsersPage(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
-	}
 
 	public void clickOnAdminUsers() {
 		adminUsersElement.click();

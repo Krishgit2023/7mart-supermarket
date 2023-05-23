@@ -10,6 +10,7 @@ import com.sevenrmartsupermarket.base.DataProviders;
 import com.sevenrmartsupermarket.pages.LoginPage;
 import com.sevenrmartsupermarket.pages.ManageDeliveryBoyPage;
 import com.sevenrmartsupermarket.pages.ManageUsersPage;
+import com.sevenrmartsupermarket.utilities.FakerUtility;
 import com.sevenrmartsupermarket.utilities.GeneralUtility;
 
 public class ManageDeliveryBoyTest extends Base {
@@ -20,8 +21,8 @@ public class ManageDeliveryBoyTest extends Base {
 	@Test(dataProvider = "New DeliveryBoy User Creation Data", dataProviderClass = DataProviders.class)
 	public void verifyDeliveryBoyNewUserCreations(String name, String email, String phoneNumber, String address,
 			String userName, String password) {
-		name = name + GeneralUtility.getTimeStamp();
-		userName = userName + GeneralUtility.getTimeStamp();
+		name = name + FakerUtility.getLastName();
+		userName = userName + FakerUtility.getFirstName();
 		loginPage = new LoginPage(driver);
 		managedeliveryboypage = new ManageDeliveryBoyPage(driver);
 		loginPage.loginUtility();

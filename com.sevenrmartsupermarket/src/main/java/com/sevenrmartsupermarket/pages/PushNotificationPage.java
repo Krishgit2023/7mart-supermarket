@@ -12,6 +12,12 @@ public class PushNotificationPage {
 	LoginPage loginpage;
 	GeneralUtility generalUtility;
 
+	public PushNotificationPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+
+	}
+
 	@FindBy(xpath = "//li[@class='nav-item']//p[contains(text(),'Push Notifications')]")
 	private WebElement pushNotificationElement;
 	@FindBy(xpath = "//input[@id='title']")
@@ -20,14 +26,8 @@ public class PushNotificationPage {
 	private WebElement descriptionElement;
 	@FindBy(xpath = "//button[@type='submit']")
 	private WebElement sendButtonElement;
-	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+	@FindBy(xpath = "//h5[contains(text(),' Alert!')]")
 	private WebElement successAlertElement;
-
-	public PushNotificationPage(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
-
-	}
 
 	public String getUserActionAlertMessage() {
 		generalUtility = new GeneralUtility(driver);

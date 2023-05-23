@@ -1,5 +1,6 @@
 package com.sevenrmartsupermarket.pages;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,16 +10,24 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.sevenrmartsupermarket.utilities.GeneralUtility;
 import com.sevenrmartsupermarket.utilities.PageUtility;
+import com.sevenrmartsupermarket.utilities.WaitUtility;
 
 public class ManageCategoryPage {
 
 	WebDriver driver;
+	WaitUtility waitUtility;
 	PageUtility pageUtility;
 	GeneralUtility generalUtility;
 	Select select;
+
+	public ManageCategoryPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
 
 	@FindBy(xpath = "//p[contains(text(),'Manage Category')]")
 	private WebElement manageCategoryElement;
@@ -51,11 +60,6 @@ public class ManageCategoryPage {
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody/tr/td[1]")
 	private List<WebElement> tableElements;
 
-	public ManageCategoryPage(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
-	}
-
 	public void clickOnManageCategory() {
 		manageCategoryElement.click();
 	}
@@ -84,6 +88,12 @@ public class ManageCategoryPage {
 	public String getSuccessAlert() {
 		generalUtility = new GeneralUtility(driver);
 		return generalUtility.get_textOFElement(successAlertElement);
+	}
+
+	public void elementVisibility() {
+		waitUtility = new WaitUtility(driver);
+		waitUtility.waitForElementToBeVisible(successAlertElement);
+
 	}
 
 	public void createNewCategory(String category, String imageName) {

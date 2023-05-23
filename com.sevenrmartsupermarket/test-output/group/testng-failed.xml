@@ -15,13 +15,17 @@
       <class name="com.sevenrmartsupermarket.tests.ManageUsersTest">
         <methods>
           <include name="launchBrowser"/>
+          <include name="launchBrowser"/>
+          <include name="verifyUserStatusChangingFunctionality"/>
           <include name="verifyDeleteUser"/>
+          <include name="verifyPassword"/>
           <include name="terminateBrowser"/>
         </methods>
       </class> <!-- com.sevenrmartsupermarket.tests.ManageUsersTest -->
       <class name="com.sevenrmartsupermarket.tests.AdminUsersTest">
         <methods>
           <include name="verifyUserStatusChangingFunctionality"/>
+          <include name="launchBrowser"/>
           <include name="launchBrowser"/>
           <include name="terminateBrowser"/>
         </methods>

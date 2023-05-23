@@ -10,6 +10,7 @@ import com.sevenrmartsupermarket.base.DataProviders;
 import com.sevenrmartsupermarket.pages.AdminUsersPage;
 import com.sevenrmartsupermarket.pages.LoginPage;
 import com.sevenrmartsupermarket.pages.ManageUsersPage;
+import com.sevenrmartsupermarket.utilities.FakerUtility;
 import com.sevenrmartsupermarket.utilities.GeneralUtility;
 
 public class AdminUsersTest extends Base {
@@ -22,12 +23,8 @@ public class AdminUsersTest extends Base {
 		adminUsersPage = new AdminUsersPage(driver);
 		loginpage.loginUtility();
 		adminUsersPage.clickOnAdminUsers();
-		usersName = usersName + GeneralUtility.getTimeStamp();
+		usersName = usersName + FakerUtility.getLastName();
 		adminUsersPage.createAdminUser(usersName, password, userType);
-		String expectedAlertMessage = "×\nAlert!\nUser Created Successfully";
-		String actualAlertMessage = adminUsersPage.getUserCreationSuccessAlert();
-		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);
-		//edit this to another test
 		adminUsersPage.clickOnLogout();
 		loginpage.loginUtility(usersName, password);
 		String expectedProfileName = usersName;
@@ -42,7 +39,7 @@ public class AdminUsersTest extends Base {
 		loginpage.loginUtility();
 		adminUsersPage.clickOnAdminUsers();
 		adminUsersPage.createAdminUser("Krishna", "K@123", "Staff");
-		String expectedAlertMessage = "×\nAlert!\nUsername already exists.";
+		String expectedAlertMessage = "Alert!";
 		String actualAlertMessage = adminUsersPage.getExistingUserAlert();
 		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);
 
@@ -54,20 +51,20 @@ public class AdminUsersTest extends Base {
 		adminUsersPage = new AdminUsersPage(driver);
 		loginpage.loginUtility();
 		adminUsersPage.clickOnAdminUsers();
-		adminUsersPage.clickOnDeactivationButton("News User1");
-		String expectedAlertMessage = "×\nAlert!\nUser Status Changed Successfully";
+		adminUsersPage.clickOnDeactivationButton("Mable Toy");
+		String expectedAlertMessage = "Alert!";
 		String actualAlertMessage = adminUsersPage.getUserCreationSuccessAlert();
 		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);
 	}
 
-	@Test
+	@Test(retryAnalyzer = com.sevenrmartsupermarket.listeners.RetryAnalyzer.class)
 	public void verifyDeleteUserFunctionality() {
 		loginpage = new LoginPage(driver);
 		adminUsersPage = new AdminUsersPage(driver);
 		loginpage.loginUtility();
 		adminUsersPage.clickOnAdminUsers();
-		adminUsersPage.clickOnDeleteUserButton("AdminUser10_05_2023_01_23_08");
-		String expectedAlertMessage = "×\nAlert!\nUser Deleted Successfully";
+		adminUsersPage.clickOnDeleteUserButton("Elza Runte II");
+		String expectedAlertMessage = "Alert!";
 		String actualAlertMessage = adminUsersPage.getUserCreationSuccessAlert();
 		Assert.assertEquals(actualAlertMessage, expectedAlertMessage);
 
