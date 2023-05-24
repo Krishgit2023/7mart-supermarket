@@ -1,0 +1,15 @@
+<suite name="Demo Test" >
+	<listeners>
+		<listener class-name="com.sevenrmartsupermarket.listeners.ExtentReporter"></listener>
+	</listeners>
+	<test name="Feature Test">
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.ManageSliderTest">
+				<methods>
+					<include name="verifyNewSliderCreation"></include>
+					<include name="verifySliderUpdation"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>

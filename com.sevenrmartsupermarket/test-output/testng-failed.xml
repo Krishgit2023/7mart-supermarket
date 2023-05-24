@@ -1,35 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [group]" guice-stage="DEVELOPMENT">
-  <listeners>
-    <listener class-name="com.sevenrmartsupermarket.listeners.ExtentReporter"/>
-  </listeners>
-  <test thread-count="5" name="Smoke Run(failed)">
-    <groups>
-      <run>
-        <include name="Smoke"/>
-        <include name="Sanity"/>
-      </run>
-    </groups>
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.sevenrmartsupermarket.tests.ManageUsersTest">
-        <methods>
-          <include name="launchBrowser"/>
-          <include name="launchBrowser"/>
-          <include name="verifyUserStatusChangingFunctionality"/>
-          <include name="verifyDeleteUser"/>
-          <include name="verifyPassword"/>
-          <include name="terminateBrowser"/>
-        </methods>
-      </class> <!-- com.sevenrmartsupermarket.tests.ManageUsersTest -->
       <class name="com.sevenrmartsupermarket.tests.AdminUsersTest">
         <methods>
           <include name="verifyUserStatusChangingFunctionality"/>
           <include name="launchBrowser"/>
           <include name="launchBrowser"/>
+          <include name="verifyDeleteUserFunctionality"/>
           <include name="terminateBrowser"/>
         </methods>
       </class> <!-- com.sevenrmartsupermarket.tests.AdminUsersTest -->
     </classes>
-  </test> <!-- Smoke Run(failed) -->
-</suite> <!-- Failed suite [group] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

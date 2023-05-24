@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Method Test">
+	<listeners>
+		<listener class-name="com.sevenrmartsupermarket.listeners.ExtentReporter"></listener>
+	</listeners>
 	<test name="Feature Test">
 		<classes>
-			<class name="com.sevenrmartsupermarket.tests.ManageUsersTest">
+			<class name="com.sevenrmartsupermarket.tests.ManageSliderTest">
 				<methods>
-					<include name="verifyUserStatusChangingFunctionality"></include>
-					<include name="verifyDeleteUser"></include>
-					<include name="verifyPassword"></include>
+					<include name="verifyNewSliderCreation"></include>
+					<include name="verifySliderUpdation"></include>
 				</methods>
 			</class>
 		</classes>
